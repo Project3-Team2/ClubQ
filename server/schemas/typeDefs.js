@@ -8,6 +8,8 @@ const typeDefs = gql`
     email: String
     phone: String
     partyCount: Number
+    note: String
+    restricted: Boolean
   }
   
   type Manager {
@@ -53,7 +55,7 @@ const typeDefs = gql`
     guards: [Guard]
     guard(username: String!): Guard
     signups: [Guard]
-    Signup(username: String!): Guard
+    signup(username: String!): Guard
   }
   
   type Mutation {
