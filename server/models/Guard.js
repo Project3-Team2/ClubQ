@@ -1,37 +1,89 @@
 const { Schema, model } = require('mongoose');
-const reactionSchema = require('./Reaction');
 const dateFormat = require('../utils/dateFormat');
+const bcrypt = require('bcrypt');
 
-const thoughtSchema = new Schema(
+const reviewSchema =new Schema(
   {
-    thoughtText: {
+    reviewText: {
       type: String,
-      required: 'You need to leave a thought!',
+      required: 'You need to leave a review!',
       minlength: 1,
-      maxlength: 280
+      maxlength: 300
     },
     createdAt: {
-      type: Date,
+      type : Date,
       default: Date.now,
       get: timestamp => dateFormat(timestamp)
     },
-    username: {
-      type: String,
-      required: true
-    },
-    reactions: [reactionSchema]
+    managerName: {
+        type: String,
+        required: true
+    }
   },
   {
     toJSON: {
-      getters: true
+      getters:true
     }
   }
 );
 
-thoughtSchema.virtual('reactionCount').get(function() {
-  return this.reactions.length;
+const guardSchema = new Schema(
+  {
+    username: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true
+    },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      match: [/.+@.+\..+/, 'Must match an email address!']
+    },
+    phone: {
+      //I can't figure out if this should be a string or integer, but integer doesnt work
+      type: String,
+      required: true,
+      unique: true,
+      match: [/^[1-9]\d{2}-\d{3}-\d{4}/, 'Must match an phone number!']
+    },
+    password: {
+      type: String,
+      required: true,
+      minlength: 5
+    },
+    approved: {
+      type: Boolean,
+      default: false
+    },
+    performancereviews: [reviewSchema]
+  },
+  {
+    toJSON: {
+      virtuals: true
+    }
+  }
+);
+
+
+// set up pre-save middleware to create password
+guardSchema.pre('save', async function(next) {
+  if (this.isNew || this.isModified('password')) {
+    const saltRounds = 10;
+    this.password = await bcrypt.hash(this.password, saltRounds);
+  }
+
+  next();
 });
 
-const Thought = model('Thought', thoughtSchema);
+// compare the incoming password with the hashed password
+guardSchema.methods.isCorrectPassword = async function(password) {
+  return bcrypt.compare(password, this.password);
+};
 
-module.exports = Thought;
+
+const Guard = model('Guard', guardSchema);
+const Signup= model('Signup', guardSchema);
+
+module.exports = {Guard , Signup};

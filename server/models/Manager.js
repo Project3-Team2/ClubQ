@@ -1,18 +1,13 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-const userSchema = new Schema(
+const managerSchema = new Schema(
   {
     username: {
       type: String,
       required: true,
       unique: true,
       trim: true
-    },
-    createdAt: {
-      type: Date,
-      default: Date.now,
-      get: timestamp => dateFormat(timestamp)
     },
     email: {
       type: String,
@@ -27,34 +22,17 @@ const userSchema = new Schema(
       unique: true,
       match: [/^[1-9]\d{2}-\d{3}-\d{4}/, 'Must match an phone number!']
     },
-    partyCount: {
-      //Same with this, it should be an integer
-      type: String,
-      required: true,
-      unique: true,
-      match: [/[1-9]/, 'Must me a number between 1-9!']
-    }
-  },
-  {
-    toJSON: {
-      virtuals: true
-    }
-  }
-);
-
-const managerSchema = new Schema(
-  {
-    managerName: {
-      type: String,
-      required: true,
-      unique: true,
-      trim: true
-    },
     password: {
       type: String,
       required: true,
       minlength: 5
     },
+    guards: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Guard'
+      }
+    ],
   },
   {
     toJSON: {
@@ -63,8 +41,10 @@ const managerSchema = new Schema(
   }
 );
 
+
+
 // set up pre-save middleware to create password
-userSchema.pre('save', async function(next) {
+managerSchema.pre('save', async function(next) {
   if (this.isNew || this.isModified('password')) {
     const saltRounds = 10;
     this.password = await bcrypt.hash(this.password, saltRounds);
@@ -74,14 +54,22 @@ userSchema.pre('save', async function(next) {
 });
 
 // compare the incoming password with the hashed password
-userSchema.methods.isCorrectPassword = async function(password) {
+managerSchema.methods.isCorrectPassword = async function(password) {
   return bcrypt.compare(password, this.password);
 };
 
-userSchema.virtual('friendCount').get(function() {
-  return this.friends.length;
+managerSchema.virtual('guardCount').get(function() {
+  return this.guards.length;
 });
 
-const User = model('User', userSchema);
 
-module.exports = User;
+
+// Count of all the guards to be approved
+// managerSchema.virtual('friendCount').get(function() {
+//   return this.friends.length;
+// });
+
+
+const Manager = model('Manager', managerSchema);
+
+module.exports = Manager;
