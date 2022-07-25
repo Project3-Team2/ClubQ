@@ -16,7 +16,6 @@ const managerSchema = new Schema(
       match: [/.+@.+\..+/, 'Must match an email address!']
     },
     phone: {
-      //I can't figure out if this should be a string or integer, but integer doesnt work
       type: String,
       required: true,
       unique: true,
