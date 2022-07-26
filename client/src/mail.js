@@ -1,6 +1,6 @@
-const nodemailer = require('nodemailer');
-const { google } = require('googleapis');
-require('dotenv').config();
+import nodemailer from 'nodemailer';
+import { google } from 'googleapis';
+import 'dotenv/config';
 
 const oAuth2Client = new google.auth.OAuth2(
   process.env.CLIENT_ID,
@@ -50,6 +50,8 @@ async function sendMail() {
   }
 }
 
-sendMail()
-  .then((result) => console.log('Email sent...', result))
-  .catch((error) => console.log(error.message));
+// sendMail()
+//   .then((result) => console.log('Email sent...', result))
+//   .catch((error) => console.log(error.message));
+
+export default sendMail;
