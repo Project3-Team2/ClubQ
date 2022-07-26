@@ -1,0 +1,9 @@
+[
+  {
+    "queue": "Q1",
+    "username": "TestCustomer",
+    "email": "test@email.com",
+    "phone": "111-111-1111",
+    "partyCount": 1
+  }
+]

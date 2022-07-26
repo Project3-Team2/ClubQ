@@ -18,6 +18,8 @@
     "faker": "^4.1.0",
     "graphql": "^16.5.0",
     "i": "^0.3.7",
+    "install": "^0.13.0",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.9"
   },
   "devDependencies": {

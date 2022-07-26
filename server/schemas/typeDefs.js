@@ -7,7 +7,7 @@ const typeDefs = gql`
     createdAt: String
     email: String
     phone: String
-    partyCount: Number
+    partyCount: Int
     note: String
     restricted: Boolean
   }
@@ -17,23 +17,6 @@ const typeDefs = gql`
     username: String
     email: String
     phone: String
-    guards: [Guard]
-  }
-
-  type Guard {
-    _id: ID
-    username: String
-    email: String
-    phone: String
-    approved: Boolean
-    performancereviews: [Review]
-  }
-
-  type Review {
-    _id: ID
-    reviewText: String
-    createdAt: String
-    managerName: String
   }
 
   type ManagerAuth {
@@ -42,31 +25,24 @@ const typeDefs = gql`
     manager: Manager
   }
 
-  type GuardAuth {
-    token: ID!
-    guard: Guard
+  type Queue {
+    _id: ID
+    queueId: String
+    createdAt: String
+    note: String
+    customers: [Customer]
   }
 
   type Query {
-    customers: [Customer]
-    customer(username: String!): Customer
-    managers: [Manager]
-    manager(username: String!): Manager
-    guards: [Guard]
-    guard(username: String!): Guard
-    signups: [Guard]
-    signup(username: String!): Guard
+    customer: [Customer]
+    manager: [Manager]
+    queue: [Queue]
   }
   
   type Mutation {
     managerLogin(email: String!, password: String!): ManagerAuth
-    guardLogin(email:String!, password:String!): GuardAuth
-    addGuard(username:String!, email:String!, phone:String!, password:String!): GuardAuth
-    addReview(guardId:ID!, reviewText:String!): Guard
-    changeApproved(signupId:ID!): Guard
-    addCustomer(username: String!, email: String!, phone: String!, partyCount: Number! ): Customer
+    addCustomer(username: String!, email: String!, phone: String!, partyCount: Int! ): Customer
     deleteCustomer(customerId:ID!): Customer
-    deleteSignup(signupId:ID!): Guard
   }
 `;
 
