@@ -7,16 +7,14 @@ const resolvers = {
     manager: async () => {
       return Manager.find();
     },
-
-    customer: async () => {
-      return Customer.find();
-    },
-
     queue: async () => {
-      return Queue.find();
+      return Queue.find().populate("customers");
+    },
+    customer: async (parent, { queueId }) => {
+      const params = queueId ? { queueId } : {};
+      return Customer.find(params).sort({ createdAt: -1 });
     },
   },
-
 
   Mutation: {
     managerLogin: async (parent, { email, password }) => {

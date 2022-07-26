@@ -1,8 +1,9 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type Customer {
     _id: ID
+    queueId: String
     username: String
     createdAt: String
     email: String
@@ -11,7 +12,7 @@ const typeDefs = gql`
     note: String
     restricted: Boolean
   }
-  
+
   type Manager {
     _id: ID
     username: String
@@ -38,11 +39,16 @@ const typeDefs = gql`
     manager: [Manager]
     queue: [Queue]
   }
-  
+
   type Mutation {
     managerLogin(email: String!, password: String!): ManagerAuth
-    addCustomer(username: String!, email: String!, phone: String!, partyCount: Int! ): Customer
-    deleteCustomer(customerId:ID!): Customer
+    addCustomer(
+      username: String!
+      email: String!
+      phone: String!
+      partyCount: Int!
+    ): Customer
+    deleteCustomer(customerId: ID!): Customer
   }
 `;
 

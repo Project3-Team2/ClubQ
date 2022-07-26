@@ -13,13 +13,13 @@ db.once("open", async () => {
     await Queue.deleteMany({});
     await Queue.create(QueueSeeds);
     for (let i = 0; i < CustomerSeeds.length; i++) {
-      console.log(CustomerSeeds[i].queue);
-      const { _id } = await Customer.create(CustomerSeeds[i]);
-      const queue = await Queue.findOneAndUpdate(
-        { queueId: CustomerSeeds[i].queue },
+      const { _id, queueId } = await Customer.create(CustomerSeeds[i]);
+      console.log(_id, queueId);
+      const temp = await Queue.findOneAndUpdate(
+        { queueId: queueId },
         {
           $addToSet: {
-            customers: _id
+            customers: _id,
           },
         }
       );

@@ -3,11 +3,6 @@ const dateFormat = require("../utils/dateFormat");
 
 const customerSchema = new Schema(
   {
-    queue: {
-      type: String,
-      required: true,
-      trim: true,
-    },
     username: {
       type: String,
       required: true,
@@ -37,6 +32,10 @@ const customerSchema = new Schema(
       unique: false,
       default: 1,
       match: [/[1-9]/, "Must me a number between 1-9!"],
+    },
+    queueId: {
+      type: String,
+      required: true,
     },
     note: {
       type: String,

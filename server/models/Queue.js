@@ -6,7 +6,6 @@ const queueSchema = new Schema(
     queueId: {
       type: String,
       required: true,
-      unique: true,
       trim: true,
     },
     createdAt: {
