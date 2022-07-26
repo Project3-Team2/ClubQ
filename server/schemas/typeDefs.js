@@ -35,9 +35,11 @@ const typeDefs = gql`
   }
 
   type Query {
-    customer: [Customer]
+    customers: [Customer]
+    customer(_id: ID!): Customer
     manager: [Manager]
-    queue: [Queue]
+    queues: [Queue]
+    queue(queueId: String!): Queue
   }
 
   type Mutation {

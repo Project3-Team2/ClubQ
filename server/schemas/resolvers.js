@@ -7,12 +7,18 @@ const resolvers = {
     manager: async () => {
       return Manager.find();
     },
-    queue: async () => {
+
+    customers: async () => {
+      return Customer.find();
+    },
+    customer: async (parent, { _id }) => {
+      return Customer.findOne({ _id }).select("-__v -password");
+    },
+    queues: async () => {
       return Queue.find().populate("customers");
     },
-    customer: async (parent, { queueId }) => {
-      const params = queueId ? { queueId } : {};
-      return Customer.find(params).sort({ createdAt: -1 });
+    queue: async (parent, { queueId }) => {
+      return Queue.findOne({ queueId }).populate("customers");
     },
   },
 
