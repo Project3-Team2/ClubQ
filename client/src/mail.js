@@ -47,7 +47,7 @@ async function sendMail(name, email) {
   }
 }
 
-// sendMail()
+// sendMail(name, email)
 //   .then((result) => console.log('Email sent...', result))
 //   .catch((error) => console.log(error.message));
 
