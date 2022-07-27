@@ -8,6 +8,10 @@ const queueSchema = new Schema(
       required: true,
       trim: true,
     },
+    wait_time: {
+      type: Number,
+      required: true
+    },
     createdAt: {
       type: Date,
       default: Date.now,

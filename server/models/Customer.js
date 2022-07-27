@@ -41,9 +41,9 @@ const customerSchema = new Schema(
       type: String,
       required: false,
     },
-    restricted: {
+    inQueue: {
       type: Boolean,
-      default: false,
+      default: true,
     },
   },
   {
