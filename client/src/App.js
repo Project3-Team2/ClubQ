@@ -1,5 +1,15 @@
+import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import logo from './logo.svg';
 import './App.css';
+
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
+
+const client = new ApolloClient({
+  link: httpLink,
+  cache: new InMemoryCache(),
+});
 
 function App() {
   return (
