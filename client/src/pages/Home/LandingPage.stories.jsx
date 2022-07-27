@@ -7,7 +7,7 @@ export default {
 };
 
 const Template = (args) => (
- 
+  /* eslint-disable-next-line react/jsx-props-no-spreading */
   <LandingPage {...args} />
 );
 
@@ -19,7 +19,7 @@ Authenticated.parameters = {
     isLoading: false,
     isAuthenticated: true,
     user: {
-      name: 'ClubQ',
+      name: 'John',
     },
   },
 };
