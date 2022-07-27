@@ -9,10 +9,7 @@ const oAuth2Client = new google.auth.OAuth2(
 );
 oAuth2Client.setCredentials({ refresh_token: process.env.REFRESH_TOKEN });
 
-const name=``;
-const email=``;
-
-async function sendMail() {
+async function sendMail(name, email) {
   try {
     const accessToken = await oAuth2Client.getAccessToken();
 
