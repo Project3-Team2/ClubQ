@@ -65,8 +65,8 @@ export const QUERY_QUEUE= gql`
 `;
 
 // export const QUERY_QUERY = gql`
-//   query Manager($username: String) {
-//     Manager(username: $username) {
+//   query Query($username: String) {
+//     Query(username: $username) {
 //         _id
 //         username
 //         email
