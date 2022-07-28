@@ -11,7 +11,7 @@ The application can be accessed using its Heroku link.  Otherwise you may clone 
 
 
 ## Table of contents
-
+- [Links](#Links)
 - [Built with](#Built with)
 - [Description](#Description)
 - [License](#License)
