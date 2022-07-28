@@ -1,20 +1,44 @@
 ## ClubQ - A Unigue Queing System
 
 ##Installation
+
 The application can be accessed using its Heroku link.  Otherwise you may clone the repository and enter 'npm i' into root file, in the terminal, to install dependencies. 
 
+## Table of contents
+- [Built with](#Built with)
+- [Description](#Description)
+- [License](#License)
+- [Usage](#Usage)
+- [Authors](#Authors)
+- [User Story](#User Story)
+
+
 ## Built with
-HTML
-CSS
-Javascript
-JSX
-Node.js
-Express.js
-Graphql
-Apollo
-Heroku
-Nodemon
-JWT
+- HTML
+- CSS
+- Javascript
+- JSX
+- Node.js
+- Express.js
+- Graphql
+- Apollo
+- Heroku
+- Nodemon
+- JWT
+
+## Description
+
+A full stack application that will help you make the best of your time by not having to waste it by standing in lines. This application uses a full stack MERN tools to provide a simple and interactive platform where club goers can preregister for their spot in line rather than having to arrive on site and having to wait in long queues.
+
+## User Story
+AS BUSINESS MANAGER/OWNER I am presented with a page requiring my login information
+WHEN I log in I want to be able to input data into the app which will generate a Q-TIME for users
+ALSO i want the ability to access the queue
+SO I have the ability to remove unwanted guests from the queue
+
+AS A USER I am presented with a home screen with a form requiring a name, email, phone number, and how many guests are in their party
+THEN upon submission of the form, I am presented with a page that shows my Q-TIME, alongside the form details.
+WHEN the Q-TIME reaches zero, the guest recieves a notification, telling them to proceed to the nightclub
 
 ## Usage
 Link:
@@ -23,20 +47,14 @@ Link:
 *screenshot*
 *screenshot*
 
-##Authors
+## Authors
 Made by QTEAM
 
-Brennan Merrett
-github.com/BrennanJLM
-Brian Lockerbie
-https://github.com/brianlockerbie
-Jasmine Virk
-github.com/jvirk10
-Luyan Zhang
-https://github.com/Mage1404
-Matthew Williams
-Rohith Suresh
-github.com/Rohitsuresh1
+[Brennan Merrett](https://github.com/BrennanJLM)
+[Brian Lockerbie](https://github.com/brianlockerbie)
+[Jasmine Virk](https://github.com/jvirk10)
+[Matthew Williams]
+[Rohith Suresh](https://github.com/Rohitsuresh1)
 
 ##License
 This application uses the MIT license.
