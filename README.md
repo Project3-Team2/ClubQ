@@ -67,7 +67,7 @@ Made by QTEAM
 - [Brennan Merrett](https://github.com/BrennanJLM)
 - [Brian Lockerbie](https://github.com/brianlockerbie)
 - [Jasmine Virk](https://github.com/jvirk10)
-- [Matthew Williams]
+- [Matthew Williams](https://github.com/mdubb)
 - [Rohith Suresh](https://github.com/Rohitsuresh1)
 
 ##License
