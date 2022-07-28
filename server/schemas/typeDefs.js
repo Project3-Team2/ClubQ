@@ -10,7 +10,7 @@ const typeDefs = gql`
     phone: String
     partyCount: Int
     note: String
-    restricted: Boolean
+    inQueue: Boolean
   }
 
   type Manager {
@@ -22,7 +22,6 @@ const typeDefs = gql`
 
   type ManagerAuth {
     token: ID!
-    # This part needs to be reviewed, what does auth return in our case?
     manager: Manager
   }
 
@@ -31,10 +30,12 @@ const typeDefs = gql`
     queueId: String
     createdAt: String
     note: String
+    wait_time: Int
     customers: [Customer]
   }
 
   type Query {
+    me: Manager
     customers: [Customer]
     customer(_id: ID!): Customer
     manager: [Manager]
@@ -44,13 +45,10 @@ const typeDefs = gql`
 
   type Mutation {
     managerLogin(email: String!, password: String!): ManagerAuth
-    addCustomer(
-      username: String!
-      email: String!
-      phone: String!
-      partyCount: Int!
-    ): Customer
-    deleteCustomer(customerId: ID!): Customer
+    addCustomer(username: String!, queueId: String!, email: String!, phone: String!,partyCount: Int!,note: String): Customer
+    CheckinCustomer(_id: ID!): Customer
+    deleteCustomer(_id: ID!): Customer
+    ChangeWaitTime(queueId: String!, updateTime: Int!): Queue
   }
 `;
 
