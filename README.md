@@ -21,7 +21,7 @@ The application can be accessed using its Heroku link.  Otherwise you may clone 
 
 ## Links
 
-- Deployed application:
+- Deployed application: https://pacific-beyond-43744.herokuapp.com/
 - GitHub repository: https://github.com/Project3-Team2/ClubQ
 
 ## Built with
