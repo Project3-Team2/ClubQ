@@ -1,4 +1,4 @@
-## ClubQ - A Unigue Queing System
+## ClubQ - A Unique Queing System
 
 A MERN application
 
@@ -70,6 +70,7 @@ Made by QTEAM
 - [Matthew Williams](https://github.com/mdubb)
 - [Rohith Suresh](https://github.com/Rohitsuresh1)
 
-##License
+
+ ## License
 
 This application uses the MIT license.
