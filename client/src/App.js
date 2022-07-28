@@ -4,12 +4,12 @@ import {
   InMemoryCache,
   createHttpLink,
 } from "@apollo/client";
-import { Route, Router, Routes } from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes, Link } from "react-router-dom";
 import "./App.css";
 import HomePage from "./components/HomePage";
 import ForgetPasswordPage from "./components/ForgetPasswordPage";
 import LandingPage from "./components/LandingPage";
-import LogInPage from "./components/LoginPage";
+import LogInPage from "./components/LogInPage";
 import QuePage from "./components/QuePage";
 import RegisterPage from "./components/RegisterPage";
 
@@ -40,6 +40,20 @@ function App() {
         <RegisterPage></RegisterPage>
       </div>
       {/* </Router> */}
+      <Router>
+      <nav>
+        <Link to="/"> HomePage </Link>
+        <Link to="/LandingPage"> LandingPage </Link>
+        <Link to="/RegisterPage"> RegisterPage </Link>
+      </nav>
+      <Routes>
+        {/* <Route path="/" element={<HomePage />} /> */}
+        <Route path="/LandingPage" element={<LandingPage />} />
+        <Route path="/RegisterPage" element={<RegisterPage />} />
+        <Route path="*" element={<ForgetPasswordPage/>} />
+      </Routes>
+      <div> Foooter </div>
+    </Router>
     </ApolloProvider>
   );
 }
