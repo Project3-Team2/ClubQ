@@ -1,10 +1,11 @@
 
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
+import { Route, Router, Routes } from 'react-router-dom';
 import './App.css';
 import HomePage from './components/HomePage';
 import ForgetPasswordPage from './components/ForgetPasswordPage';
 import LandingPage from './components/LandingPage';
-import LoginPage from './components/LoginPage';
+import LogInPage from './components/LogInPage';
 import QuePage from './components/QuePage';
 import RegisterPage from './components/RegisterPage';
 
@@ -17,18 +18,28 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+
 function App() {
+  
   return (
-    <div className="App">
-      <h1>Hi there</h1>
-      <HomePage/>
-      {/* <ForgetPasswordPage></ForgetPasswordPage>
-      <LandingPage></LandingPage>
-      <LoginPage></LoginPage>
-      <QuePage></QuePage>
-      <RegisterPage></RegisterPage> */}
-    </div>
-  );
+    <ApolloProvider client={client}>
+      {/* <Router> */}
+        <div className="App">
+          <h1>Hi there</h1>
+          {/* <Routes>
+            <Route path="/"
+            element={<HomePage/>}/>
+          </Routes> */}
+          <HomePage/>
+          <ForgetPasswordPage></ForgetPasswordPage>
+          <LandingPage></LandingPage>
+          <LogInPage></LogInPage>
+          <QuePage></QuePage>
+          <RegisterPage></RegisterPage>
+        </div>
+     {/* </Router> */}
+   </ApolloProvider>
+  )
 }
 
 export default App;

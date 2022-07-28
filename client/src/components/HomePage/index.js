@@ -2,13 +2,15 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 
-export default function HomePage() {
+ function HomePage() {
     return (
         <div className="text-center">
             <h1 className="main-title Startup-Page title">welcome to our app</h1>
-            <Link to="/">
+            {/* <Link to="/">
                 <button className="primary-button">Log out</button>
-            </Link>
+            </Link> */}
         </div>
     )
 }
+
+export default HomePage

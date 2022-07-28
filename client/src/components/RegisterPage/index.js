@@ -30,7 +30,7 @@ export default function SignUpPage() {
                 </p>
             </form>
             <footer>
-                <p><Link to="/">Back to HomePage</Link>.</p>
+                {/* <p><Link to="/">Back to HomePage</Link>.</p> */}
             </footer>
         </div>
     )
