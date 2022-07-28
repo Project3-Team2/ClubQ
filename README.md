@@ -1,6 +1,6 @@
 ## ClubQ - A Unigue Queing System
 
-##Installation
+## Installation
 
 The application can be accessed using its Heroku link.  Otherwise you may clone the repository and enter 'npm i' into root file, in the terminal, to install dependencies. 
 
@@ -50,11 +50,11 @@ Link:
 ## Authors
 Made by QTEAM
 
-[Brennan Merrett](https://github.com/BrennanJLM)
-[Brian Lockerbie](https://github.com/brianlockerbie)
-[Jasmine Virk](https://github.com/jvirk10)
-[Matthew Williams]
-[Rohith Suresh](https://github.com/Rohitsuresh1)
+- [Brennan Merrett](https://github.com/BrennanJLM)
+- [Brian Lockerbie](https://github.com/brianlockerbie)
+- [Jasmine Virk](https://github.com/jvirk10)
+- [Matthew Williams]
+- [Rohith Suresh](https://github.com/Rohitsuresh1)
 
 ##License
 This application uses the MIT license.
