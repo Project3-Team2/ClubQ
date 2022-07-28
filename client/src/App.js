@@ -8,6 +8,8 @@ import LandingPage from './components/LandingPage';
 import LogInPage from './components/LogInPage';
 import QuePage from './components/QuePage';
 import RegisterPage from './components/RegisterPage';
+// import LandingPage from './pages/Home/LandingPage';
+import PageNotFound from './pages/PageNotFound';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -25,11 +27,11 @@ function App() {
     <ApolloProvider client={client}>
       {/* <Router> */}
         <div className="App">
-          <h1>Hi there</h1>
           {/* <Routes>
             <Route path="/"
             element={<HomePage/>}/>
           </Routes> */}
+          <PageNotFound></PageNotFound>
           <HomePage/>
           <ForgetPasswordPage></ForgetPasswordPage>
           <LandingPage></LandingPage>

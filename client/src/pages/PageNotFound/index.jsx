@@ -1,7 +1,7 @@
 import React from 'react';
-import Button from 'components/common/Button';
-import CreateJoinForm from 'components/common/CreateJoinForm';
-import styles from './pageNotFound.module.scss';
+// import Button from 'components/common/Button';
+// import CreateJoinForm from 'components/common/CreateJoinForm';
+import styles from './';
 
 function PageNotFound(props) {
   const MainContent = () => {
@@ -15,7 +15,7 @@ function PageNotFound(props) {
               A queue with that name doesn&apos;t exist, please enter a valid queue name or create
               one
             </p>
-            <CreateJoinForm defaultTextFieldValue={props.match.params.queueName} />
+            {/* <CreateJoinForm defaultTextFieldValue={props.match.params.queueName} /> */}
           </div>
         </div>
       );
@@ -28,13 +28,13 @@ function PageNotFound(props) {
           <h3>Looks like the bugs stole that page.</h3>
           <div className={styles.buttondiv}>
             <div>
-              <Button
+              <button
                 onClick={() => {
                   window.location.href = '/';
                 }}
               >
                 Return home
-              </Button>
+              </button>
             </div>
             <div>
               <a
@@ -42,7 +42,7 @@ function PageNotFound(props) {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button outlined>Report a bug</Button>
+                <button outlined>Report a bug</button>
               </a>
             </div>
           </div>
@@ -55,7 +55,7 @@ function PageNotFound(props) {
   };
   return (
     <>
-      <MainContent />
+      {/* <MainContent /> */}
       <img src="/images/wavecurve.svg" alt="Error 404" />
     </>
   );
