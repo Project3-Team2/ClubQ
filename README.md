@@ -1,8 +1,14 @@
 ## ClubQ - A Unigue Queing System
 
+A MERN application
+
 ## Installation
 
 The application can be accessed using its Heroku link.  Otherwise you may clone the repository and enter 'npm i' into root file, in the terminal, to install dependencies. 
+
+#
+
+
 
 ## Table of contents
 
@@ -11,8 +17,12 @@ The application can be accessed using its Heroku link.  Otherwise you may clone 
 - [License](#License)
 - [Usage](#Usage)
 - [Authors](#Authors)
-- [User Story](#User Story)
+- [Screenshots](#Screenshots)
 
+## Links
+
+- Deployed application:
+- Description:
 
 ## Built with
 
@@ -42,7 +52,7 @@ AS A USER I am presented with a home screen with a form requiring a name, email,
 THEN upon submission of the form, I am presented with a page that shows my Q-TIME, alongside the form details.
 WHEN the Q-TIME reaches zero, the guest recieves a notification, telling them to proceed to the nightclub
 
-## Usage
+## Screenshots
 
 Link:
 
