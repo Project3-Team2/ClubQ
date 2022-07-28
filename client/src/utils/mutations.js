@@ -98,3 +98,15 @@ export const CHANGE_WAIT_TIME = gql`
     }
   }
 `;
+
+export const ADD_QUEUE = gql`
+  mutation AddQueue($queueId: String!, $waitTime: Int!) {
+    addQueue(queueId: $queueId, wait_time: $waitTime) {
+      _id
+      queueId
+      createdAt
+      note
+      wait_time
+    }
+  }
+`;

@@ -49,6 +49,7 @@ const typeDefs = gql`
     CheckinCustomer(_id: ID!): Customer
     deleteCustomer(_id: ID!): Customer
     ChangeWaitTime(queueId: String!, updateTime: Int!): Queue
+    addQueue (queueId: String!, wait_time: Int!, note: String): Queue
   }
 `;
 
