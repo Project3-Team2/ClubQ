@@ -4,7 +4,7 @@ import {
   InMemoryCache,
   createHttpLink,
 } from "@apollo/client";
-import { Route, BrowserRouter as Router, Routes, Link } from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./App.css";
 import HomePage from "./components/HomePage";
 import ForgetPasswordPage from "./components/ForgetPasswordPage";
@@ -12,6 +12,9 @@ import LandingPage from "./components/LandingPage";
 import LogInPage from "./components/LogInPage";
 import QuePage from "./components/QuePage";
 import RegisterPage from "./components/RegisterPage";
+import ErrorPage from "./components/ErrorPage";
+import Footer from "./components/Footer";
+import Nav from "./components/Nav";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -25,35 +28,22 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      {/* <Router> */}
-      <div className="App">
-        <h1>Hi there</h1>
-        {/* <Routes>
-            <Route path="/"
-            element={<HomePage/>}/>
-          </Routes> */}
-        <HomePage />
-        <ForgetPasswordPage></ForgetPasswordPage>
-        <LandingPage></LandingPage>
-        <LogInPage></LogInPage>
-        <QuePage></QuePage>
-        <RegisterPage></RegisterPage>
-      </div>
-      {/* </Router> */}
       <Router>
-      <nav>
-        <Link to="/"> HomePage </Link>
-        <Link to="/LandingPage"> LandingPage </Link>
-        <Link to="/RegisterPage"> RegisterPage </Link>
-      </nav>
+        <div className="App">
+      <Nav />
       <Routes>
-        {/* <Route path="/" element={<HomePage />} /> */}
+        <Route path="/" element={<HomePage />} />
         <Route path="/LandingPage" element={<LandingPage />} />
         <Route path="/RegisterPage" element={<RegisterPage />} />
-        <Route path="*" element={<ForgetPasswordPage/>} />
+        <Route path="/LogInPage" element={<LogInPage />} />
+        <Route path="/QuePage" element={<QuePage />} />
+        <Route path="/ForgetPasswordPage" element={<ForgetPasswordPage />} />
+        <Route path="*" element={<ErrorPage/>} />
+        
       </Routes>
-      <div> Foooter </div>
-    </Router>
+      </div>
+    </Router> 
+    <Footer />
     </ApolloProvider>
   );
 }
