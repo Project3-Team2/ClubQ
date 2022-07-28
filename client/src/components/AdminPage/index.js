@@ -13,7 +13,7 @@ const AdminPage = () => {
   console.log(Switch[0])
   const [addQueue, { error }] = useMutation(ADD_QUEUE);
   const [closeQueue] = useMutation(CLOSE);
-  if (Switch.switch) {
+  if (!Switch.switch) {
     // update state based on form input changes
     const handleChange = (event) => {
       const { name, value } = event.target;

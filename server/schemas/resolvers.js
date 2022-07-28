@@ -68,21 +68,19 @@ const resolvers = {
 
     addQueue: async (parent, args) => {
       const queue = await Queue.create(args);
-      const temp = await Switch.findOneAndUpdate(
-        { name: "main" },
-        { switch: true, queueId: queue.queueId },
+      const temp = await Switch.create(
+        {
+          name: "main",
+          switch: true,
+          queueId: queue.queueId,
+        },
         { new: true, runValidators: true }
-      )
+      );
       return queue;
     },
 
-    closeQueue: async () => {
-      const temp = await Switch.findOneAndUpdate(
-        { name: "main" },
-        { switch: false },
-        { new: true, runValidators: true }
-      )
-      return temp;
+    closeQueue: async () => {;
+      return Switch.findOneAndDelete({ name: "main" });
     },
 
     deleteCustomer: async (parent, args, context) => {

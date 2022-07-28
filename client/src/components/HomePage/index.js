@@ -1,21 +1,16 @@
-import { DirectiveLocation } from "graphql";
 import React from "react";
-import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import Auth from "../../utils/auth";
 import { SWITCH } from "../../utils/queries";
-
+import HomeOn from "../../pages/Home/HomeOn";
+import HomeOff from "../../pages/Home/HomeOff";
 const HomePage = () => {
-  const { loading, data } = useQuery(SWITCH);
+  const { data } = useQuery(SWITCH);
   const Switch = data?.switch || [];
-  if (Switch.switch) {
-    return (
-      <div>
-        <h3>We are now closed</h3>
-      </div>
-    );
+
+  if (Switch.length) {
+    return <HomeOn />
   } else {
-    return <h3>We are now opened</h3>;
+    return <HomeOff />
   }
 };
 
