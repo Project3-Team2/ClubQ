@@ -36,7 +36,6 @@ const typeDefs = gql`
 
   type Switch {
     name: String
-    switch: Boolean
     queueId: String
   }
 
@@ -48,11 +47,12 @@ const typeDefs = gql`
     queues: [Queue]
     queue(queueId: String!): Queue
     switch: [Switch]
+    current: Queue
   }
 
   type Mutation {
     managerLogin(email: String!, password: String!): ManagerAuth
-    addCustomer(username: String!, queueId: String!, email: String!, phone: String!,partyCount: Int!,note: String): Customer
+    addCustomer(username: String!, queueId: String!, email: String!, phone: String!,partyCount: Int,note: String): Customer
     CheckinCustomer(_id: ID!): Customer
     deleteCustomer(_id: ID!): Customer
     ChangeWaitTime(queueId: String!, updateTime: Int!): Queue

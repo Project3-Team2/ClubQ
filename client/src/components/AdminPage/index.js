@@ -10,7 +10,7 @@ const AdminPage = () => {
   const [formState, setFormState] = useState({
     queueId: "",
   });
-  console.log(Switch[0])
+  console.log(Switch[0]);
   const [addQueue, { error }] = useMutation(ADD_QUEUE);
   const [closeQueue] = useMutation(CLOSE);
   if (!Switch.switch) {
@@ -30,7 +30,7 @@ const AdminPage = () => {
         const { data } = await addQueue({
           variables: { ...formState },
         });
-        const queue = data?.queues || [];
+        return;
       } catch (e) {
         console.error(e);
       }
@@ -57,7 +57,6 @@ const AdminPage = () => {
       </main>
     );
   } else {
-    
     const handleFormSubmit = async (event) => {
       event.preventDefault();
       try {

@@ -20,7 +20,7 @@ export const ADD_CUSTOMER = gql`
     $queueId: String!
     $email: String!
     $phone: String!
-    $partyCount: Int!
+    $partyCount: Int
     $note: String
   ) {
     addCustomer(
@@ -115,7 +115,6 @@ export const CLOSE = gql`
   mutation CloseQueue {
     closeQueue {
       name
-      switch
       queueId
     }
   }

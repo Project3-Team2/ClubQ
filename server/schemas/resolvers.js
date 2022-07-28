@@ -31,6 +31,9 @@ const resolvers = {
     queue: async (parent, { queueId }) => {
       return Queue.findOne({ queueId }).populate("customers");
     },
+    current: async () => {
+      return Switch.findOne({ name: "main" });
+    },
   },
 
   Mutation: {
@@ -47,39 +50,32 @@ const resolvers = {
       return { token, manager };
     },
 
-    addCustomer: async (parent, args, context) => {
-      if (context.user) {
-        const customer = await Customer.create(args);
-        const { _id, queueId } = customer;
-        console.log(_id, queueId);
-        const temp = await Queue.findOneAndUpdate(
-          { queueId: queueId },
-          {
-            $addToSet: {
-              customers: _id,
-            },
-          }
-        );
+    addCustomer: async (parent, args) => {
+      const customer = await Customer.create(args);
+      const { _id, queueId } = customer;
+      console.log(_id, queueId);
+      const temp = await Queue.findOneAndUpdate(
+        { queueId: queueId },
+        {
+          $addToSet: {
+            customers: _id,
+          },
+        }
+      );
 
-        return customer;
-      }
-      throw new AuthenticationError("Only Manager can access this!");
+      return customer;
     },
 
     addQueue: async (parent, args) => {
       const queue = await Queue.create(args);
-      const temp = await Switch.create(
-        {
-          name: "main",
-          switch: true,
-          queueId: queue.queueId,
-        },
-        { new: true, runValidators: true }
-      );
+      const temp = await Switch.create({
+        name: "main",
+        queueId: queue.queueId,
+      });
       return queue;
     },
 
-    closeQueue: async () => {;
+    closeQueue: async () => {
       return Switch.findOneAndDelete({ name: "main" });
     },
 

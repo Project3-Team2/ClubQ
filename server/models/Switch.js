@@ -5,10 +5,6 @@ const switchSchema = new Schema(
       type: String,
       trim: true,
     },
-    switch: {
-      type: Boolean,
-      default: false,
-    },
     queueId: {
       type: String,
       trim: true,

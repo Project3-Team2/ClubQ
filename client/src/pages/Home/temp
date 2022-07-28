@@ -1,0 +1,69 @@
+console.log(data);
+const [formState, setFormState] = useState({
+  queueId: Current.queueId,
+  username: "",
+  email: "",
+  phone: "",
+  partyCount: [],
+});
+const handleChange = (event) => {
+  const { name, value } = event.target;
+
+  setFormState({
+    ...formState,
+    [name]: value,
+  });
+};
+const handleFormSubmit = async (event) => {
+  event.preventDefault();
+  try {
+    const { data } = await {
+      variables: { ...formState },
+    };
+    const queue = data?.queues || [];
+  } catch (e) {
+    console.error(e);
+  }
+};
+return (
+  <main>
+    <h4>Join the Queue!</h4>
+    <form onSubmit={handleFormSubmit}>
+      <input
+        placeholder="Username"
+        name="username"
+        type="username"
+        id="username"
+        value={formState.username}
+        onChange={handleChange}
+      />
+      <input
+        placeholder="Email"
+        name="email"
+        type="email"
+        id="email"
+        value={formState.email}
+        onChange={handleChange}
+      />
+      <input
+        placeholder="Phone"
+        name="phone"
+        type="phone"
+        id="phone"
+        value={formState.phone}
+        onChange={handleChange}
+      />
+      <input
+        placeholder="partyCount"
+        name="partyCount"
+        type="partyCount"
+        id="partyCount"
+        value={formState.partyCount}
+        onChange={handleChange}
+      />
+      <button className="btn d-block w-100" type="submit">
+        Submit
+      </button>
+    </form>
+  </main>
+);

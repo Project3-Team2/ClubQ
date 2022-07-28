@@ -103,9 +103,17 @@ export const QUERY_ME = gql`
 export const SWITCH = gql`
   query Switch {
     switch {
-      switch
       queueId
       name
+    }
+  }
+`;
+
+export const CURRENT = gql`
+  query Current {
+    current {
+      _id
+      queueId
     }
   }
 `;

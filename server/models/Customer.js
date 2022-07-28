@@ -28,8 +28,6 @@ const customerSchema = new Schema(
     },
     partyCount: {
       type: Number,
-      required: true,
-      unique: false,
       default: 1,
       match: [/[1-9]/, "Must me a number between 1-9!"],
     },
