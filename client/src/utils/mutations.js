@@ -1,51 +1,90 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
+
+export const MANAGER_LOGIN = gql`
+  mutation managerLogin($email: String!, $password: String!) {
+    managerLogin(email: $email, password: $password) {
+      token
+      manager {
+        _id
+        username
+        email
+        phone
+      }
+    }
+  }
+`;
 
 export const ADD_CUSTOMER = gql`
-  mutation addCustomer($email: String!) {
-    addCustomer(email: $email) {
-      token
-      Customer {
-        _id
-        username
-        phone
-      }
+  mutation addCustomer(
+    $username: String!
+    $queueId: String!
+    $email: String!
+    $phone: String!
+    $partyCount: Int!
+    $note: String
+  ) {
+    addCustomer(
+      username: $username
+      queueId: $queueId
+      email: $email
+      phone: $phone
+      partyCount: $partyCount
+      note: $note
+    ) {
+      _id
+      queueId
+      username
+      createdAt
+      email
+      phone
+      partyCount
+      note
+      inQueue
     }
   }
 `;
 
-// export const REMOVE_CUSTOMER = gql`
-//   mutation removeCustomer($id: ID!) {
-//     removeCustomer(id: $id) {
-//       _id
-//       username
-//       phone
-//     }
-//   }
-// `;
-
-export const LOGIN_MANAGER = gql`
-  mutation login($email: String!) {
-    login(email: $email) {
-      token
-      Manager {
-        _id
-        username
-        phone
-      }
+export const CHECK_IN_CUSTOMER = gql`
+  mutation CheckinCustomer($id: ID!) {
+    CheckinCustomer(_id: $id) {
+      _id
+      queueId
+      username
+      createdAt
+      email
+      phone
+      partyCount
+      note
+      inQueue
     }
   }
 `;
 
-export const QUERY_QUEUE = gql`
-  mutation Queue($id: ID!) {
-    Queue(_id: $id) {
-      token
-      Queue {
-        _id:
-    queueId
-    createdAt
-    note
-    customers: {
+export const DELETE_CUSTOMER = gql`
+  mutation deleteCustomer($id: ID!) {
+    deleteCustomer(_id: $id) {
+      _id
+      queueId
+      username
+      createdAt
+      email
+      phone
+      partyCount
+      note
+      inQueue
+    }
+  }
+`;
+
+export const CHANGE_WAIT_TIME = gql`
+  mutation ChangeWaitTime($queueId: String!, $updateTime: Int!) {
+    ChangeWaitTime(queueId: $queueId, updateTime: $updateTime) {
+      _id
+      queueId
+      createdAt
+      note
+      wait_time
+      customers {
         _id
         queueId
         username
@@ -54,9 +93,8 @@ export const QUERY_QUEUE = gql`
         phone
         partyCount
         note
-        restricted
+        inQueue
       }
     }
   }
 `;
-

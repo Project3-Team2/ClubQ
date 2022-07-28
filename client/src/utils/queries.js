@@ -1,56 +1,57 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const QUERY_CUSTOMERS = gql`
-  query Customers($username: String) {
-    Customers(username: $username) {
-        _id
-        queueId
-        username
-        createdAt
-        email
-        phone
-        partyCount
-        note
-        restricted
+  query Customers {
+    customers {
+      _id
+      queueId
+      username
+      createdAt
+      email
+      phone
+      partyCount
+      note
+      inQueue
     }
   }
 `;
 
 export const QUERY_CUSTOMER = gql`
-  query Customer($username: String) {
-    Customer(username: $username) {
-        _id
-        queueId
-        username
-        createdAt
-        email
-        phone
-        partyCount
-        note
-        restricted
+  query Customer($id: ID!) {
+    customer(_id: $id) {
+      _id
+      queueId
+      username
+      createdAt
+      email
+      phone
+      partyCount
+      note
+      inQueue
     }
   }
 `;
 
 export const QUERY_MANAGER = gql`
-  query Manager($username: String) {
-    Manager(username: $username) {
-        _id
-        username
-        email
-        phone
+  query Manager {
+    manager {
+      _id
+      username
+      email
+      phone
     }
   }
 `;
 
-export const QUERY_QUEUE= gql`
-  query Queue($id: ID!) {
-    Queue(_id: $id) {
-        _id: ID
-    queueId: String
-    createdAt: String
-    note: String
-    customers: {
+export const QUERY_QUEUES = gql`
+  query Queues {
+    queues {
+      _id
+      queueId
+      createdAt
+      note
+      wait_time
+      customers {
         _id
         queueId
         username
@@ -59,22 +60,42 @@ export const QUERY_QUEUE= gql`
         phone
         partyCount
         note
-        restricted
+        inQueue
+      }
     }
   }
 `;
 
-// export const QUERY_QUERY = gql`
-//   query Query($username: String) {
-//     Query(username: $username) {
-//         _id
-//         username
-//         email
-//         phone
-//     }
-//   }
-// `;
+export const QUERY_QUEUE = gql`
+  query Queues($queueId: String!) {
+    queue(queueId: $queueId) {
+      _id
+      queueId
+      createdAt
+      note
+      wait_time
+      customers {
+        _id
+        queueId
+        username
+        createdAt
+        email
+        phone
+        partyCount
+        note
+        inQueue
+      }
+    }
+  }
+`;
 
-
-
-
+export const QUERY_ME = gql`
+  query Me {
+    me {
+      _id
+      username
+      email
+      phone
+    }
+  }
+`;
