@@ -24,7 +24,7 @@ export default function LoginPage() {
                 </p>
                 <p>
                     <label>Phone number</label><br/>
-                    <input type="number" name="number" required placeholder='eg: +1 647 123 4321'/>
+                    <input type="text" name="number" required placeholder='eg: +1 647 123 4321'/>
                 </p>
                 <p>
                     <input type="checkbox" name="checkbox" id="checkbox" required /> <span>I agree all statements in <a href="https://google.com" target="_blank" rel="noopener noreferrer">terms of service</a></span>.

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+## ClubQ - A Unique Queing System
+=======
 ## ClubQ - A Unigue Queing System
+>>>>>>> e906608d2d9fd24af4c29743d1f8cf2dcadd80d6
 
 A MERN application
 
@@ -21,7 +25,7 @@ The application can be accessed using its Heroku link.  Otherwise you may clone 
 
 ## Links
 
-- Deployed application:
+- Deployed application: https://pacific-beyond-43744.herokuapp.com/
 - GitHub repository: https://github.com/Project3-Team2/ClubQ
 
 ## Built with
@@ -70,6 +74,7 @@ Made by QTEAM
 - [Matthew Williams](https://github.com/mdubb)
 - [Rohith Suresh](https://github.com/Rohitsuresh1)
 
-##License
+
+ ## License
 
 This application uses the MIT license.

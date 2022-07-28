@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 
-export default function LogInPage() {
+ function LogInPage() {
     return (
         
         <div className="text-center m-5-auto">
@@ -29,3 +29,5 @@ export default function LogInPage() {
     </div>
     )
 }
+
+export default LogInPage;

@@ -9,7 +9,7 @@ import "./App.css";
 import HomePage from "./components/HomePage";
 import ForgetPasswordPage from "./components/ForgetPasswordPage";
 import LandingPage from "./components/LandingPage";
-import LogInPage from "./components/LoginPage";
+import LogInPage from "./components/LogIn";
 import QuePage from "./components/QuePage";
 import RegisterPage from "./components/RegisterPage";
 import ErrorPage from "./components/ErrorPage";
