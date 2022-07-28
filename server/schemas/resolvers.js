@@ -64,6 +64,14 @@ const resolvers = {
       throw new AuthenticationError("Only Manager can access this!");
     },
 
+    addQueue: async (parent, args, context) => {
+      if (context.user) {
+        const queue = await Queue.create(args);
+        return queue;
+      }
+      throw new AuthenticationError("Only Manager can access this!");
+    },
+
     deleteCustomer: async (parent, args, context) => {
       if (context.user) {
         return Customer.findOneAndDelete({ _id: args._id });

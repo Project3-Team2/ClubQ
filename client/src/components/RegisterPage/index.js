@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 
 
-export default function SignUpPage() {
+export default function LoginPage() {
 
     return (
         <div className="text-center m-5-auto">
