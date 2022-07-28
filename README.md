@@ -5,6 +5,7 @@
 The application can be accessed using its Heroku link.  Otherwise you may clone the repository and enter 'npm i' into root file, in the terminal, to install dependencies. 
 
 ## Table of contents
+
 - [Built with](#Built with)
 - [Description](#Description)
 - [License](#License)
@@ -14,6 +15,7 @@ The application can be accessed using its Heroku link.  Otherwise you may clone 
 
 
 ## Built with
+
 - HTML
 - CSS
 - Javascript
@@ -41,6 +43,7 @@ THEN upon submission of the form, I am presented with a page that shows my Q-TIM
 WHEN the Q-TIME reaches zero, the guest recieves a notification, telling them to proceed to the nightclub
 
 ## Usage
+
 Link:
 
 *screenshot*
@@ -48,6 +51,7 @@ Link:
 *screenshot*
 
 ## Authors
+
 Made by QTEAM
 
 - [Brennan Merrett](https://github.com/BrennanJLM)
@@ -57,5 +61,6 @@ Made by QTEAM
 - [Rohith Suresh](https://github.com/Rohitsuresh1)
 
 ##License
+
 This application uses the MIT license.
 
