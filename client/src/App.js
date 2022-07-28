@@ -12,6 +12,7 @@ import LandingPage from "./components/LandingPage";
 import LogInPage from "./components/LoginPage";
 import QuePage from "./components/QuePage";
 import RegisterPage from "./components/RegisterPage";
+import AdminPage from "./components/AdminPage";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -32,6 +33,7 @@ function App() {
             <Route path="/"
             element={<HomePage/>}/>
           </Routes> */}
+        <AdminPage />
         <HomePage />
         <ForgetPasswordPage></ForgetPasswordPage>
         <LandingPage></LandingPage>

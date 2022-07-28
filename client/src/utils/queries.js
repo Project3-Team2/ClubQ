@@ -99,3 +99,13 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+export const SWITCH = gql`
+  query Switch {
+    switch {
+      switch
+      queueId
+      name
+    }
+  }
+`;

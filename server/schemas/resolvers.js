@@ -1,4 +1,4 @@
-const { Manager, Queue, Customer } = require("../models");
+const { Manager, Queue, Customer, Switch } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
 
@@ -16,7 +16,9 @@ const resolvers = {
     manager: async () => {
       return Manager.find();
     },
-
+    switch: async () => {
+      return Switch.find();
+    },
     customers: async () => {
       return Customer.find();
     },
@@ -64,12 +66,23 @@ const resolvers = {
       throw new AuthenticationError("Only Manager can access this!");
     },
 
-    addQueue: async (parent, args, context) => {
-      if (context.user) {
-        const queue = await Queue.create(args);
-        return queue;
-      }
-      throw new AuthenticationError("Only Manager can access this!");
+    addQueue: async (parent, args) => {
+      const queue = await Queue.create(args);
+      const temp = await Switch.findOneAndUpdate(
+        { name: "main" },
+        { switch: true, queueId: queue.queueId },
+        { new: true, runValidators: true }
+      )
+      return queue;
+    },
+
+    closeQueue: async () => {
+      const temp = await Switch.findOneAndUpdate(
+        { name: "main" },
+        { switch: false },
+        { new: true, runValidators: true }
+      )
+      return temp;
     },
 
     deleteCustomer: async (parent, args, context) => {

@@ -34,6 +34,12 @@ const typeDefs = gql`
     customers: [Customer]
   }
 
+  type Switch {
+    name: String
+    switch: Boolean
+    queueId: String
+  }
+
   type Query {
     me: Manager
     customers: [Customer]
@@ -41,6 +47,7 @@ const typeDefs = gql`
     manager: [Manager]
     queues: [Queue]
     queue(queueId: String!): Queue
+    switch: [Switch]
   }
 
   type Mutation {
@@ -49,7 +56,8 @@ const typeDefs = gql`
     CheckinCustomer(_id: ID!): Customer
     deleteCustomer(_id: ID!): Customer
     ChangeWaitTime(queueId: String!, updateTime: Int!): Queue
-    addQueue (queueId: String!, wait_time: Int!, note: String): Queue
+    addQueue (queueId: String!, wait_time: String, note: String): Queue
+    closeQueue: Switch
   }
 `;
 

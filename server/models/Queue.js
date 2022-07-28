@@ -6,11 +6,16 @@ const queueSchema = new Schema(
     queueId: {
       type: String,
       required: true,
+      unique: true,
       trim: true,
     },
     wait_time: {
       type: Number,
-      required: true
+      default: 5,
+    },
+    switch: {
+      type: Boolean,
+      default: false,
     },
     createdAt: {
       type: Date,

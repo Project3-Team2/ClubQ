@@ -100,13 +100,23 @@ export const CHANGE_WAIT_TIME = gql`
 `;
 
 export const ADD_QUEUE = gql`
-  mutation AddQueue($queueId: String!, $waitTime: Int!) {
-    addQueue(queueId: $queueId, wait_time: $waitTime) {
+  mutation AddQueue($queueId: String!) {
+    addQueue(queueId: $queueId) {
       _id
       queueId
       createdAt
       note
       wait_time
+    }
+  }
+`;
+
+export const CLOSE = gql`
+  mutation CloseQueue {
+    closeQueue {
+      name
+      switch
+      queueId
     }
   }
 `;

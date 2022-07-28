@@ -2,11 +2,14 @@
 const ManagerSeeds = require("./managerSeed.json");
 const CustomerSeeds = require("./customerSeed.json");
 const QueueSeeds = require("./queueSeed.json");
+const SwitchSeeds = require("./switchSeed.json");
 const db = require("../config/connection");
-const { Manager, Customer, Queue } = require("../models");
+const { Manager, Customer, Queue, Switch } = require("../models");
 
 db.once("open", async () => {
   try {
+    await Switch.deleteMany({});
+    await Switch.create(SwitchSeeds);
     await Manager.deleteMany({});
     await Manager.create(ManagerSeeds);
     await Customer.deleteMany({});

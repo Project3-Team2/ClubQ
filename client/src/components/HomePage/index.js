@@ -1,16 +1,22 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import { DirectiveLocation } from "graphql";
+import React from "react";
+import { Link, useParams } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import Auth from "../../utils/auth";
+import { SWITCH } from "../../utils/queries";
 
-
- function HomePage() {
+const HomePage = () => {
+  const { loading, data } = useQuery(SWITCH);
+  const Switch = data?.switch || [];
+  if (Switch.switch) {
     return (
-        <div className="text-center">
-            <h1 className="main-title Startup-Page title">welcome to our app</h1>
-            {/* <Link to="/">
-                <button className="primary-button">Log out</button>
-            </Link> */}
-        </div>
-    )
-}
+      <div>
+        <h3>We are now closed</h3>
+      </div>
+    );
+  } else {
+    return <h3>We are now opened</h3>;
+  }
+};
 
-export default HomePage
+export default HomePage;
