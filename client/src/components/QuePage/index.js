@@ -9,6 +9,7 @@ function QuePage() {
   const queue = data?.queues || [];
   console.log(queue);
   return (
+   
     <main>
       <div className="flex-row justify-space-between">
         <div className="col-12 mb-3">
@@ -30,7 +31,7 @@ function QuePage() {
         </div>
       </div>
     </main>
-  );
+   );
 }
 
 export default QuePage;
