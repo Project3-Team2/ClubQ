@@ -23,6 +23,7 @@ const JoinForm = () => {
   };
 
   const handleFormSubmit = async (event) => {
+    event.preventDefault();
     try {
       const temp = await addCustomer({
         variables: { queueId: Current.queueId, ...formState },

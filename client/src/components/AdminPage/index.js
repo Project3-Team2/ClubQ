@@ -27,6 +27,7 @@ const AdminPage = () => {
   };
   // submit form
   const handleFormSubmit = async (event) => {
+    event.preventDefault();
     try {
       const { data } = await addQueue({
         variables: { ...formState },
