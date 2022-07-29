@@ -10,15 +10,15 @@ function QuePage() {
   console.log(queue);
   return (
     <main>
-      <div className="flex-row justify-space-between">
-        <div className="col-12 mb-3">
+      <div>
+        <div>
           {queue &&
             queue.map((queue) => (
-              <div key={queue._id} className="card mb-3">
-                <p className="card-header">
+              <div key={queue._id}>
+                <p>
                   {queue.queueId} Queue on {queue.createdAt}
                 </p>
-                <div className="card-body">
+                <div>
                   {queue.customers.map((customer) => (
                     <div>
                     {customer.username}
