@@ -1,20 +1,19 @@
 import React, { useState } from "react";
-import { useMutation } from "@apollo/client";
-import { ADD_CUSTOMER } from "../../utils/mutations";
-
-const JoinForm = ({ queueId }) => {
-  console.log(queueId + "now");
-  const [addCustomer, { error }] = useMutation(ADD_CUSTOMER);
+import { useMutation, useQuery } from "@apollo/client";
+import { ADD_CUSTOMER } from "../utils/mutations";
+import { CURRENT } from "../utils/queries";
+const JoinForm = () => {
+  const [addCustomer] = useMutation(ADD_CUSTOMER);
+  const { data } = useQuery(CURRENT);
+  const Current = data?.current || [];
   const [formState, setFormState] = useState({
-    queueId: queueId,
     username: "",
     email: "",
-    phone: ""
+    phone: "",
   });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    console.log(name, value);
     setFormState({
       ...formState,
       [name]: value,
@@ -23,12 +22,10 @@ const JoinForm = ({ queueId }) => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
     try {
-      const { data } = await addCustomer({
-        variables: { ...formState },
+      const temp = await addCustomer({
+        variables: { queueId: Current.queueId, ...formState },
       });
-      console.log(data);
     } catch (e) {
       console.error(e);
     }

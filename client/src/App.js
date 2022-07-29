@@ -6,7 +6,7 @@ import {
 } from "@apollo/client";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./App.css";
-import HomePage from "./components/HomePage";
+import HomePage from "./pages/HomePage";
 import ForgetPasswordPage from "./components/ForgetPasswordPage";
 import LandingPage from "./components/LandingPage";
 import LogInPage from "./components/LogIn";
