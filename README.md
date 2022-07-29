@@ -73,6 +73,7 @@ Made by QTEAM
 - [Jasmine Virk](https://github.com/jvirk10)
 - [Matthew Williams](https://github.com/mdubb)
 - [Rohith Suresh](https://github.com/Rohitsuresh1)
+- [Luyan Zhang](https://github.com/Mage1404)
 
 
  ## License
