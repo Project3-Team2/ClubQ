@@ -23,7 +23,6 @@ const JoinForm = () => {
   };
 
   const handleFormSubmit = async (event) => {
-    event.preventDefault();
     try {
       const temp = await addCustomer({
         variables: { queueId: Current.queueId, ...formState },
@@ -44,7 +43,7 @@ const JoinForm = () => {
           id="username"
           value={formState.username}
           onChange={handleChange}
-          style={{marginRight:'10px'}}
+          style={{marginRight:'10px', marginBottom:'15px'}}
           required
         /><span>{`   `}</span>
         <input
@@ -54,17 +53,17 @@ const JoinForm = () => {
           id="email"
           value={formState.email}
           onChange={handleChange}
-          style={{marginRight:'10px'}}
+          style={{marginRight:'10px', marginBottom:'15px'}}
           required
         /><span>{`   `}</span>
         <input
-          placeholder="Phone"
+          placeholder="Phone (111-222-3333)"
           name="phone"
           type="phone"
           id="phone"
           value={formState.phone}
           onChange={handleChange}
-          style={{marginRight:'10px'}}
+          style={{marginRight:'10px', marginBottom:'15px'}}
           required
         /><br/><br/><br/>
         <button className="btn d-block w-100" type="submit">
