@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 ## ClubQ - A Unique Queing System
-=======
-## ClubQ - A Unigue Queing System
->>>>>>> e906608d2d9fd24af4c29743d1f8cf2dcadd80d6
 
 A MERN application
 
