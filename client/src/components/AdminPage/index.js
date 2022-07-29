@@ -1,19 +1,14 @@
 import React from "react";
-import AdminPageOn from "../components/HomePageOn";
-import AdminPageOff from "../components/AdminPageOff";
 import { useQuery } from "@apollo/client";
-import { SWITCH } from "../utils/queries";
-
+import { SWITCH } from "../../utils/queries";
 
 const AdminPage = () => {
   const { data } = useQuery(SWITCH);
   const Switch = data?.switch || [];
-
   if (Switch.length) {
-    return <AdminPageOn />;
+    return <div>You have Queue now</div>;
   } else {
-    return <AdminPageOff />;
+    return <div>You have no Queue</div>;
   }
 };
-
 export default AdminPage;

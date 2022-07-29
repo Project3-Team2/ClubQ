@@ -15,7 +15,7 @@ import RegisterPage from "./components/RegisterPage";
 import ErrorPage from "./components/ErrorPage";
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
-import AdminPage from "./pages/AdminPage";
+import AdminPage from "./components/AdminPage";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
