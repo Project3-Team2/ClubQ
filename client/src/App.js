@@ -16,6 +16,7 @@ import ErrorPage from "./components/ErrorPage";
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 import AdminPage from "./components/AdminPage";
+import EditQueue from "./components/EditQueue";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -41,6 +42,7 @@ function App() {
         <Route path="/QuePage" element={<QuePage />} />
         <Route path="/AdminPage" element={<AdminPage />} />
         <Route path="/ForgetPasswordPage" element={<ForgetPasswordPage />} />
+        <Route path="/EditQueue" element={<EditQueue />} />
         <Route path="*" element={<ErrorPage/>} />
       </Routes>
       </div>

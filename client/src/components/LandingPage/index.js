@@ -1,31 +1,22 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useQuery } from "@apollo/client";
+import { CURRENT } from "../../utils/queries";
+import JoinForm from "../../pages/JoinForm.js";
+
 
 // import '../../src/App.css'
 // import BackgroundImage 
 
-const HeaderStyle = {
-    width: "100%",
-    height: "100vh",
-    // background: `url(${BackgroundImage})`,
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover"
-} 
 
 export default function LandingPage() {
+    const { data } = useQuery(CURRENT);
+    const Current = data?.current || [];
     return (
-        <header style={ HeaderStyle }>
-            <h1 className="main-title text-center">login / register page</h1>
-            <p className="main-para text-center">join us now </p>
-            <div className="buttons text-center">
-                {/* <Link to="/login">
-                    <button className="primary-button">log in</button>
-                </Link>
-                <Link to="/register">
-                    <button className="primary-button" id="reg_btn"><span>register </span></button>
-                </Link> */}
-            </div>
-        </header>
+        <main>
+        <h2>Join the Queue!</h2>
+        <h3>Today's Queue Id: {Current.queueId}</h3>
+        <JoinForm />
+      </main>
     )
-}
+};

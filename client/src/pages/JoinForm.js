@@ -66,7 +66,9 @@ const JoinForm = () => {
           onChange={handleChange}
           style={{marginRight:'10px', marginBottom:'15px'}}
           required
-        /><br/><br/><br/>
+        /><br/><br/>
+         <input style={{ marginBottom:'15px'}} type="checkbox" name="checkbox" id="checkbox" required /> <span>I agree all statements in <a href="https://google.com" target="_blank" rel="noopener noreferrer">terms of service.</a></span>
+         <br/>
         <button className="btn d-block w-100" type="submit">
           Submit
         </button>
