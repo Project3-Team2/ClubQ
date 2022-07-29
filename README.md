@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 ## ClubQ - A Unique Queing System
-=======
-## ClubQ - A Unigue Queing System
->>>>>>> e906608d2d9fd24af4c29743d1f8cf2dcadd80d6
 
 A MERN application
 
@@ -73,6 +69,7 @@ Made by QTEAM
 - [Jasmine Virk](https://github.com/jvirk10)
 - [Matthew Williams](https://github.com/mdubb)
 - [Rohith Suresh](https://github.com/Rohitsuresh1)
+- [Luyan Zhang](https://github.com/Mage1404)
 
 
  ## License
