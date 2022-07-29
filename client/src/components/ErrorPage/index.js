@@ -4,14 +4,16 @@ function ErrorPage(props) {
       return (
         <div >
           <div >
-            <h1>Oops 404!</h1>
+            <h1 style={{marginTop:'240px'}}>Oops 404!</h1>
             <h3>Looks like the bugs stole that page.</h3>
             <div >
               <div>
                 <button
-                  onClick={() => {
-                    window.location.href = '/';
+                  onClick={(event) => {
+                    event.preventDefault()
+                    window.location.href = '/'
                   }}
+                  style={{marginBottom:'20px'}}
                 >
                   Return home
                 </button>
@@ -26,9 +28,6 @@ function ErrorPage(props) {
                 </a>
               </div>
             </div>
-          </div>
-          <div>
-            <img src="/images/error404.svg" alt="Error 404" />
           </div>
         </div>
       );

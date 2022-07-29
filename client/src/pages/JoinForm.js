@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import { ADD_CUSTOMER } from "../utils/mutations";
 import { CURRENT } from "../utils/queries";
+
+
 const JoinForm = () => {
   const [addCustomer] = useMutation(ADD_CUSTOMER);
   const { data } = useQuery(CURRENT);
@@ -33,6 +35,7 @@ const JoinForm = () => {
 
   return (
     <div>
+      <h5 style={{marginTop:'100px',marginBottom:'25px'}}>Enter your details below</h5>
       <form onSubmit={handleFormSubmit}>
         <input
           placeholder="Username"
@@ -41,7 +44,9 @@ const JoinForm = () => {
           id="username"
           value={formState.username}
           onChange={handleChange}
-        />
+          style={{marginRight:'10px'}}
+          required
+        /><span>{`   `}</span>
         <input
           placeholder="Email"
           name="email"
@@ -49,7 +54,9 @@ const JoinForm = () => {
           id="email"
           value={formState.email}
           onChange={handleChange}
-        />
+          style={{marginRight:'10px'}}
+          required
+        /><span>{`   `}</span>
         <input
           placeholder="Phone"
           name="phone"
@@ -57,7 +64,9 @@ const JoinForm = () => {
           id="phone"
           value={formState.phone}
           onChange={handleChange}
-        />
+          style={{marginRight:'10px'}}
+          required
+        /><br/><br/><br/>
         <button className="btn d-block w-100" type="submit">
           Submit
         </button>

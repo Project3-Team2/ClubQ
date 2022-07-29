@@ -3,8 +3,8 @@ import React from "react";
 function offHomePage(props) {
   return (
     <div>
-        <h4>There is no Queue</h4>
-        <h4>Feel Free to Enter!</h4>
+        <h4>There is no Line up at the club right now!</h4>
+        <h4>Feel Free to walkin!</h4>
     </div>
   );
 }

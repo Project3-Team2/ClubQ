@@ -8,8 +8,8 @@ const OnHomePage = () => {
   const Current = data?.current || [];
   return (
     <main>
-      <h3>Join the Queue!</h3>
-      <h4>Today Queue Id: {Current.queueId}</h4>
+      <h2>Join the Queue!</h2>
+      <h3>Today's Queue Id: {Current.queueId}</h3>
       <JoinForm />
     </main>
   );

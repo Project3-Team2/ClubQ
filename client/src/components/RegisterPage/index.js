@@ -7,8 +7,8 @@ export default function LoginPage() {
 
     return (
         <div className="text-center m-5-auto">
-            <h2>Join us</h2>
-            <h5>Enter your details below to join the queue</h5>
+            <h2>Join the queue</h2>
+            
             <form action="/home">
                 <p>
                     <label>First name</label><br/>
