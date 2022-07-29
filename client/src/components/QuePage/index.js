@@ -21,7 +21,7 @@ function QuePage() {
                 </p>
                 <div>
                   {queue.customers.map((customer) => (
-                    <div>
+                    <div key={customer._id}>
                     {customer.username}
                     </div>
                   ))}
