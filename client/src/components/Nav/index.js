@@ -1,11 +1,14 @@
 import React from 'react';
-import { FaLaptopCode } from "react-icons/fa";
 import { Link } from "react-router-dom";
+
+import Auth from '../../utils/auth';
+
 
 
 function Nav() {
 
-  
+    const loggedIn = Auth.loggedIn();
+
     return (
         <nav style={{ display:'inline-flex', backgroundColor:'#D9594C', position: 'relative', top: 0, width: '100%', height:'36px' , alignContent:'center'}}>
             <div style={{ display:'inline-flex'}}>
@@ -13,8 +16,8 @@ function Nav() {
                 {/* <Link to="/LandingPage" style={{ textDecoration: 'none', color:'Black', display:'block', padding:'15px', fontWeight:'bold', textAlign:'center'}}> Landing </Link> */}
                 <Link to="/RegisterPage" style={{ textDecoration: 'none', color:'Black', display:'block', padding:'15px', fontWeight:'bold', textAlign:'center'}}> Register </Link>
                 <Link to="/LogInPage" style={{ textDecoration: 'none', color:'Black', display:'block', padding:'15px', fontWeight:'bold', textAlign:'center'}}> LogIn</Link>
-                <Link to="/QuePage" style={{ textDecoration: 'none', color:'Black', display:'block', padding:'15px', fontWeight:'bold', textAlign:'center'}}> View Queue</Link>
-                <Link to="/AdminPage" style={{ textDecoration: 'none', color:'Black', display:'block', padding:'15px', fontWeight:'bold', textAlign:'center'}}> Admin Page</Link>
+                {loggedIn && (<Link to="/QuePage" style={{ textDecoration: 'none', color:'Black', display:'block', padding:'15px', fontWeight:'bold', textAlign:'center'}}> View Queue</Link>)}
+                {loggedIn && (<Link to="/AdminPage" style={{ textDecoration: 'none', color:'Black', display:'block', padding:'15px', fontWeight:'bold', textAlign:'center'}}> Admin Page</Link>)}
     
                 {/* <Link to="/ForgetPasswordPage" style={{ textDecoration: 'none', color:'Black', display:'block', padding:'15px', fontWeight:'bold', textAlign:'center'}}> Forgot Password</Link> */}
             </div>
