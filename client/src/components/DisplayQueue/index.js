@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_QUEUES } from "../../utils/queries";
+import Footer from "../Footer";
 
 const Display = () => {
   const { data } = useQuery(QUERY_QUEUES);
@@ -10,7 +11,8 @@ const Display = () => {
     <div>
       <p>Hello {localStorage.username}</p>
       <p>There are people in front of you</p>
-      <p>Your estimate wait time is Minutes</p>
+      <p>Your estimate wait time is {current_number} Minutes</p>
+      <Footer />
     </div>
   );
 };

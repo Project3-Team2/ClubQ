@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { CURRENT } from "../../utils/queries";
 import Auth from "../../utils/auth";
+import Nav from "../Nav";
+import Footer from "../Footer";
 
 export default function CheckPage() {
   const { data } = useQuery(CURRENT);
@@ -32,6 +34,7 @@ export default function CheckPage() {
 
   return (
     <div className="text-center m-5-auto">
+      <Nav />
       <h5>Enter your details below to view the estimate waiting time</h5>
       <form onSubmit={handleFormSubmit}>
         <p>
@@ -91,6 +94,7 @@ export default function CheckPage() {
         </p>
       </form>
       <footer>{/* <p><Link to="/">Back to HomePage</Link>.</p> */}</footer>
+      <Footer />
     </div>
   );
 }

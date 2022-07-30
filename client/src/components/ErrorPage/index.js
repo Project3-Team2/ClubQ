@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from "../Footer";
 
 function ErrorPage(props) {
       return (
@@ -29,6 +30,7 @@ function ErrorPage(props) {
               </div>
             </div>
           </div>
+          <Footer />
         </div>
       );
    
