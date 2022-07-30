@@ -20,7 +20,7 @@ function Nav() {
             <div style={{ display:'inline-flex'}}>
                 <Link to="/" style={{ textDecoration: 'none', color:'Black', display:'block', padding:'15px', fontWeight:'bold', textAlign:'center'}}> Home </Link>
                 {/* <Link to="/LandingPage" style={{ textDecoration: 'none', color:'Black', display:'block', padding:'15px', fontWeight:'bold', textAlign:'center'}}> Landing </Link> */}
-                <Link to="/RegisterPage" style={{ textDecoration: 'none', color:'Black', display:'block', padding:'15px', fontWeight:'bold', textAlign:'center'}}> Register </Link>
+                <Link to="/Queue" style={{ textDecoration: 'none', color:'Black', display:'block', padding:'15px', fontWeight:'bold', textAlign:'center'}}> Check Your Queue </Link>
                 { Auth.loggedIn() ? (<a href="/" onClick={logout} style={{ textDecoration: 'none', color:'Black', display:'block', padding:'15px', fontWeight:'bold', textAlign:'center'}}> Logout </a>) : (<Link to="/LogInPage" style={{ textDecoration: 'none', color:'Black', display:'block', padding:'15px', fontWeight:'bold', textAlign:'center'}}> LogIn</Link>)}
                 {loggedIn && (<Link to="/QuePage" style={{ textDecoration: 'none', color:'Black', display:'block', padding:'15px', fontWeight:'bold', textAlign:'center'}}> View Queue</Link>)}
                 {loggedIn && (<Link to="/AdminPage" style={{ textDecoration: 'none', color:'Black', display:'block', padding:'15px', fontWeight:'bold', textAlign:'center'}}> Admin Page</Link>)}

@@ -67,7 +67,7 @@ export const QUERY_QUEUES = gql`
 `;
 
 export const QUERY_QUEUE = gql`
-  query Queues($queueId: String!) {
+  query Queue($queueId: String!) {
     queue(queueId: $queueId) {
       _id
       queueId

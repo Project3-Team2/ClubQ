@@ -5,7 +5,7 @@ function ErrorPage(props) {
         <div >
           <div >
             <h1>Oops 404!</h1>
-            <h3>Looks like the bugs stole that page.</h3>
+            <h3>Looks like you entered wrong information.</h3>
             <div >
               <div>
                 <button

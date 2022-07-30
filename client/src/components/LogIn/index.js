@@ -27,7 +27,7 @@ import Auth from '../../utils/auth';
             variables: { ...formState },
           });
     
-          Auth.login(data.managerLogin.token);
+          Auth.Managerlogin(data.managerLogin.token);
         } catch (e) {
           console.error(e);
         }
