@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { useMutation } from '@apollo/client';
 import { MANAGER_LOGIN } from '../../utils/mutations';
 import Auth from '../../utils/auth';
+import Nav from '../Nav';
+import Footer from '../Footer';
 
  function LogInPage() {
 
@@ -44,23 +46,26 @@ import Auth from '../../utils/auth';
     return (
         
         <div className="text-center m-5-auto">
+          <Nav />
         <h2>Sign in</h2>
         <form onSubmit={handleFormSubmit} >
             <p>
-                <label>Email address</label><br/>
+                <label >Email address</label><br/>
                 <input type="email" name="email" id="email"
                 placeholder="Your email"
                 value={formState.email}
+                style={{marginBottom:'15px',marginTop:'10px', textAlign:'center'}}
                 onChange={handleChange} required />
             </p>
             <p>
-                <label>Password</label>
+                <label style={{}}>Password</label>
                 {/* <Link to="/forget-password"><label className="right-label">Forget password?</label></Link> */}
                 <br/>
                 <input placeholder="******" type="password" name="password" 
                 id="password"
                 value={formState.password}
                 onChange={handleChange}
+                style={{marginBottom:'15px',marginTop:'10px', textAlign:'center'}}
                 required />
             </p>
             <p>
@@ -68,6 +73,7 @@ import Auth from '../../utils/auth';
             </p>
         </form>
         {error && <div>Login failed</div>}
+        <Footer />
     </div>
     )
 }

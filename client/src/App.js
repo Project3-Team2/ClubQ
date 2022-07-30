@@ -6,17 +6,19 @@ import {
 } from "@apollo/client";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./App.css";
-import HomePage from "./pages/HomePage";
+import HomePage from "./components/HomePage";
 import ForgetPasswordPage from "./components/ForgetPasswordPage";
 import LandingPage from "./components/LandingPage";
 import LogInPage from "./components/LogIn";
 import QuePage from "./components/QuePage";
 import UserQueue from "./components/UserQueuePage";
 import ErrorPage from "./components/ErrorPage";
-import Footer from "./components/Footer";
-import Nav from "./components/Nav";
 import AdminPage from "./components/AdminPage";
 import DisplayQueue from "./components/DisplayQueue";
+import EditQueue from "./components/EditQueue";
+
+
+
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -33,7 +35,8 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div className="App">
-      <Nav />
+        
+      {/* <Nav /> */}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/LandingPage" element={<LandingPage />} />
@@ -43,13 +46,16 @@ function App() {
         <Route path="/AdminPage" element={<AdminPage />} />
         <Route path="/DisplayQueue" element={<DisplayQueue />} />
         <Route path="/ForgetPasswordPage" element={<ForgetPasswordPage />} />
+        <Route path="/EditQueue" element={<EditQueue />} />
         <Route path="*" element={<ErrorPage/>} />
       </Routes>
       </div>
     </Router> 
-    <Footer />
+    {/* <Footer /> */}
     </ApolloProvider>
   );
 }
 
 export default App;
+
+

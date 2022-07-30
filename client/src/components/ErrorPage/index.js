@@ -9,9 +9,11 @@ function ErrorPage(props) {
             <div >
               <div>
                 <button
-                  onClick={() => {
-                    window.location.href = '/';
+                  onClick={(event) => {
+                    event.preventDefault()
+                    window.location.href = '/'
                   }}
+                  style={{marginBottom:'20px'}}
                 >
                   Return home
                 </button>
@@ -26,9 +28,6 @@ function ErrorPage(props) {
                 </a>
               </div>
             </div>
-          </div>
-          <div>
-            <img src="/images/error404.svg" alt="Error 404" />
           </div>
         </div>
       );

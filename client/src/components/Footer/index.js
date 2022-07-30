@@ -18,6 +18,7 @@ function Footer() {
 						rel="noreferrer"
 						href="https://github.com/Project3-Team2/ClubQ"
 						className="social-icon"
+						style={{position:'relative',top:'10px',left:'-10px'}}
 					>
                         <FaGithub size={42} color={'black'}/>
 					</a>{'   '}
@@ -26,6 +27,8 @@ function Footer() {
 						rel="noreferrer"
 						href="https://twitter.com/"
 						className="social-icon"
+						style={{position:'relative',top:'10px',left:'10px'}}
+
 					>
                         <FaTwitter size={42} color={'black'}/>
 					</a>		
