@@ -33,6 +33,7 @@ const AdminPage = () => {
       const { data } = await addQueue({
         variables: { ...formState },
       });
+      window.location.reload()
       return;
     } catch (e) {
       console.error(e);
@@ -48,6 +49,7 @@ const AdminPage = () => {
         <form onSubmit={async (event)=>{
             try {
               await closeQueue();
+              window.location.reload()
             } catch (e) {
               console.error(e);
             }

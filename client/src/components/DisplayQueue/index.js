@@ -1,19 +1,25 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
-import { QUERY_QUEUES } from "../../utils/queries";
+import { QUERY_QUEUE } from "../../utils/queries";
+import Nav from "../Nav";
 import Footer from "../Footer";
-
+import { useParams } from "react-router-dom";
+const current = localStorage.queue_Id;
 const Display = () => {
-  const { data } = useQuery(QUERY_QUEUES);
-  const queues = data?.queues || [];
-  const current_number = queues.length - 1;
+  const { queueId } = useParams();
+  const { data } = useQuery(QUERY_QUEUE, {
+    variables: { queueId: current },
+  });
+  const queue = data?.queue || [];
   return (
-    <div>
-      <p>Hello {localStorage.username}</p>
-      <p>There are people in front of you</p>
-      <p>Your estimate wait time is {current_number} Minutes</p>
+    <main>
+      <Nav />
+      <div>
+        <p>Hello {localStorage.username}</p>
+        <p>Your estimate wait time is {queue.wait_time} Minutes</p>
+      </div>
       <Footer />
-    </div>
+    </main>
   );
 };
 
