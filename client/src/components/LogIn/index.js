@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { useMutation } from '@apollo/client';
 import { MANAGER_LOGIN } from '../../utils/mutations';
 import Auth from '../../utils/auth';
+import Nav from '../Nav';
+import Footer from '../Footer';
 
  function LogInPage() {
 
@@ -44,6 +46,7 @@ import Auth from '../../utils/auth';
     return (
         
         <div className="text-center m-5-auto">
+          <Nav />
         <h2>Sign in</h2>
         <form onSubmit={handleFormSubmit} >
             <p>
@@ -70,6 +73,7 @@ import Auth from '../../utils/auth';
             </p>
         </form>
         {error && <div>Login failed</div>}
+        <Footer />
     </div>
     )
 }

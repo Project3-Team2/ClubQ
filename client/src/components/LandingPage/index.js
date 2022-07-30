@@ -1,22 +1,18 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
 import { useQuery } from "@apollo/client";
-import { CURRENT } from "../../utils/queries";
-import JoinForm from "../../pages/JoinForm.js";
+import { SWITCH } from "../../utils/queries";
+import HomeOn from "../../components/HomePageOn";
+import HomeOff from "../../pages/HomeOff";
 
+const HomePage = () => {
+  const { data } = useQuery(SWITCH);
+  const Switch = data?.switch || [];
 
-// import '../../src/App.css'
-// import BackgroundImage 
-
-
-export default function LandingPage() {
-    const { data } = useQuery(CURRENT);
-    const Current = data?.current || [];
-    return (
-        <main>
-        <h2>Join the Queue!</h2>
-        <h3>Today's Queue Id: {Current.queueId}</h3>
-        <JoinForm />
-      </main>
-    )
+  if (Switch.length) {
+    return (<HomeOn />)
+  } else {
+    return <HomeOff />;
+  }
 };
+
+export default HomePage;

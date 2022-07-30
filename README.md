@@ -54,8 +54,8 @@ WHEN the Q-TIME reaches zero, the guest recieves a notification, telling them to
 
 ## Screenshots
 
-![Screenshot](./assets/Screenshots/Screen%20Shot%202022-07-29%20at%203.58.52%20PM.png)
-![Screenshot](./assets/Screenshots/Screen%20Shot%202022-07-29%20at%203.59.17%20PM.png)
+![Screenshot](./assets/Screenshots/Screen%20Shot%202022-07-29%20at%209.30.20%20PM.png)
+![Screenshot](./assets/Screenshots/Screen%20Shot%202022-07-29%20at%209.30.29%20PM.png)
 ![Screenshot](./assets/Screenshots/Screen%20Shot%202022-07-29%20at%203.59.44%20PM.png)
 ![Screenshot](./assets/Screenshots/Screen%20Shot%202022-07-29%20at%203.59.57%20PM.png)
 

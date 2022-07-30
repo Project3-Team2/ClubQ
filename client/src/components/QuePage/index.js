@@ -3,6 +3,9 @@ import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import Auth from "../../utils/auth";
 import { QUERY_QUEUES } from "../../utils/queries";
+import Nav from "../Nav";
+import Footer from "../Footer";
+
 
 function QuePage() {
   const { loading, data } = useQuery(QUERY_QUEUES);
@@ -11,6 +14,7 @@ function QuePage() {
   return (
    
     <main>
+      <Nav />
       <div>
         <div>
           {queue &&
@@ -30,6 +34,7 @@ function QuePage() {
             ))}
         </div>
       </div>
+      <Footer />
     </main>
    );
 }

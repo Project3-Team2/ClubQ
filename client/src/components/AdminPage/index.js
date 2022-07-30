@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useMutation,useQuery } from "@apollo/client";
 import { ADD_QUEUE, CLOSE } from "../../utils/mutations";
 import { SWITCH, QUERY_QUEUE } from "../../utils/queries";
-
+import Nav from "../Nav";
+import Footer from "../Footer";
 
 const AdminPage = () => {
 
@@ -41,6 +42,7 @@ const AdminPage = () => {
   if (Switch.length) {
     return (
       <main>
+        <Nav />
         <div>The Queue is open now</div>
         <h4>Current Queue:</h4>
         <form onSubmit={async (event)=>{
@@ -54,11 +56,13 @@ const AdminPage = () => {
             Close Queue
           </button>
         </form>
+        <Footer />
       </main>
     ) 
   } else {
     return (
       <main>
+        <Nav />
         <div> Queue is now closed</div>
         <h4>Create a New Queue for tonight</h4>
         <form onSubmit={handleFormSubmit}>
@@ -76,6 +80,7 @@ const AdminPage = () => {
           </button>
         </form>
         {error && <div>Add Queue Failed</div>}
+        <Footer />
       </main>
     ) ;
   }

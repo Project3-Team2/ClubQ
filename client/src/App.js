@@ -13,10 +13,11 @@ import LogInPage from "./components/LogIn";
 import QuePage from "./components/QuePage";
 import RegisterPage from "./components/RegisterPage";
 import ErrorPage from "./components/ErrorPage";
-import Footer from "./components/Footer";
-import Nav from "./components/Nav";
 import AdminPage from "./components/AdminPage";
 import EditQueue from "./components/EditQueue";
+import Auth from './utils/auth';
+
+
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -29,11 +30,29 @@ const client = new ApolloClient({
 
 
 function App() {
+
+  const logout = event => {
+    event.preventDefault();
+    Auth.logout();
+}
+
+
+
+const handleClick = event => {
+  event.currentTarget.classList.toggle('active');
+
+};
+
+const loggedIn = Auth.loggedIn();
+
+
+
   return (
     <ApolloProvider client={client}>
       <Router>
         <div className="App">
-      <Nav />
+        
+      {/* <Nav /> */}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/LandingPage" element={<LandingPage />} />
@@ -47,9 +66,11 @@ function App() {
       </Routes>
       </div>
     </Router> 
-    <Footer />
+    {/* <Footer /> */}
     </ApolloProvider>
   );
 }
 
 export default App;
+
+
