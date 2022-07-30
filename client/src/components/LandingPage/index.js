@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import { SWITCH } from "../../utils/queries";
 import HomeOn from "../../components/HomePageOn";
-import HomeOff from "../../pages/HomeOff";
+import HomeOff from "../HomeOff";
 
 const HomePage = () => {
   const { data } = useQuery(SWITCH);

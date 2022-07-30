@@ -1,6 +1,6 @@
 import React from "react";
-import Nav from "../components/Nav";
-import Footer from "../components/Footer";
+import Nav from "../Nav";
+import Footer from "../Footer";
 
 function offHomePage(props) {
   return (

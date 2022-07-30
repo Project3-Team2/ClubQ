@@ -6,7 +6,7 @@ import {
 } from "@apollo/client";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./App.css";
-import HomePage from "./pages/HomePage";
+import HomePage from "./components/HomePage";
 import ForgetPasswordPage from "./components/ForgetPasswordPage";
 import LandingPage from "./components/LandingPage";
 import LogInPage from "./components/LogIn";
@@ -15,7 +15,7 @@ import RegisterPage from "./components/RegisterPage";
 import ErrorPage from "./components/ErrorPage";
 import AdminPage from "./components/AdminPage";
 import EditQueue from "./components/EditQueue";
-import Auth from './utils/auth';
+
 
 
 
@@ -30,23 +30,6 @@ const client = new ApolloClient({
 
 
 function App() {
-
-  const logout = event => {
-    event.preventDefault();
-    Auth.logout();
-}
-
-
-
-const handleClick = event => {
-  event.currentTarget.classList.toggle('active');
-
-};
-
-const loggedIn = Auth.loggedIn();
-
-
-
   return (
     <ApolloProvider client={client}>
       <Router>

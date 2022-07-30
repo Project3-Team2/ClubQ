@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useMutation, useQuery } from "@apollo/client";
-import { ADD_CUSTOMER } from "../utils/mutations";
-import { CURRENT } from "../utils/queries";
+import { ADD_CUSTOMER } from "../../utils/mutations";
+import { CURRENT } from "../../utils/queries";
 
 
 const JoinForm = () => {
